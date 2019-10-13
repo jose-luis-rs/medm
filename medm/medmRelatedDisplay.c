@@ -213,7 +213,7 @@ void executeDlRelatedDisplay(DisplayInfo *displayInfo, DlElement *dlElement)
    *  widget list as well, for destruction when new displays are
    *  selected at the top level */
     Widget relatedDisplayPulldownMenu, relatedDisplayMenuButton;
-    //Widget widget;
+    /*Widget widget;*/
 
   /* Don't do anyting if the element is hidden */
     if(dlElement->hidden) return;

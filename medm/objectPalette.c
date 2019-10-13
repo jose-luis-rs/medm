@@ -358,7 +358,7 @@ static menuEntry_t helpMenu[] = {
 void createObject()
 {
     Widget objectRC;
-    //Widget graphicsRC, monitorRC, controllerRC, miscRC;
+    
     Widget objectMB;
     Widget objectHelpPDM;
 

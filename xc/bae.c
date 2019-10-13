@@ -48,7 +48,6 @@ short widths[5] = { 6, 3, 10, 10, 10 };
 int main(int argc, char *argv[])
 {
     Widget toplevel;
-    //Widget mw;
     XtAppContext app;
     int i;
 

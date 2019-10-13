@@ -2348,7 +2348,7 @@ static void cpAxisOptionMenuSimpleCallback(Widget w, XtPointer cd, XtPointer cbs
     XcVType minF, maxF, tickF;
     XtPointer userData;
     MedmCartesianPlot *pcp = NULL;
-    //DlCartesianPlot *dlCartesianPlot = NULL;
+
 
     UNREFERENCED(cbs);
 
@@ -3463,7 +3463,7 @@ void cpUpdateMatrixColors(int clr, int row)
 Widget createCartesianPlotDataDialog(Widget parent)
 {
     Widget shell, w, wparent;
-    //Widget columns[CP_COLS], labels[CP_COLS];
+
     Widget cpForm, cpActionAreaW, cpMatrixW;
 #if defined(XRTGRAPH)
     XmString label, opt1, opt2;
@@ -3533,7 +3533,7 @@ Widget createCartesianPlotDataDialog(Widget parent)
           xmFormWidgetClass, cpMatrixW,
           XmNfractionBase, MAX_TRACES + 1,
           NULL);
-        //columns[j] = wparent = w;
+ 
         wparent = w;
 
       /* Create a column label */
@@ -3548,7 +3548,7 @@ Widget createCartesianPlotDataDialog(Widget parent)
           XmNtopPosition, 0,
           XmNbottomPosition, 1,
           NULL);
-        //labels[j] = w;
+   
 
         for(i=0; i < MAX_TRACES; i++) {
             switch(j) {

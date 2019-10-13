@@ -1629,18 +1629,18 @@ ItemPSDrawAll (SciPlotWidget w, FILE *fd, float yflip, int usecolor)
   SciPlotItem *item;
   XcmsColor currentcolor;
   int previousline, currentline, previouscolor;
-  //int previousfont, currentfont;
+
 
   item = w->plot.drawlist;
   loopcount = 0;
-  //previousfont = 0;
+
   previouscolor = -1;
   previousline = XtLINE_SOLID;
   while (loopcount < w->plot.num_drawlist) {
 
 /* 2 switch blocks:  1st sets up defaults, 2nd actually draws things. */
     currentline = previousline;
-    //currentfont = previousfont;
+
     switch (item->type) {
     case SciPlotLine:
     case SciPlotCircle:
@@ -1795,7 +1795,7 @@ FILE*
 SciPlotPSCreateHeader (Widget wi, char *filename, float width, float height)
 {
   float scale, xoff, yoff, xmax, ymax, aspect, border, titlefontsize;
-  //float yflip;
+
   int i;
   PScommands *p;
   char fontname[128];
@@ -1823,7 +1823,7 @@ SciPlotPSCreateHeader (Widget wi, char *filename, float width, float height)
     xmax = xoff + scale * width;
     ymax = yoff + scale * height;
   }
-  //yflip = height;
+
   fprintf(fd, "%s\n%s %.2f  %s\n%s %f %f %f %f\n%s\n",
     "%!PS-ADOBE-3.0 EPSF-3.0",
     "%%Creator: SciPlot Widget",
@@ -3934,16 +3934,14 @@ DrawCartesianXMajorAndMinor (SciPlotWidget w)
 {
   real x, x1_pos, y1_pos, y2_pos, x1_val, y1_val, x_major_incr,
        minorval, majorval;
-  //real height, y_major_incr, x2_pos;
+
   int i, j, num_x_major; /* precision, */
-  //int num_y_major;
+
 
   w->plot.current_id = SciPlotDrawingXMajorMinor;
   FontnumHeight(w, w->plot.axisFont);
   num_x_major  = w->plot.x.MajorNum;
-  //num_y_major  = w->plot.y.MajorNum;
   x_major_incr = w->plot.x.MajorInc;
-  //y_major_incr = w->plot.y.MajorInc;
   x1_val = w->plot.x.DrawOrigin;
   y1_val = w->plot.y.DrawOrigin;
   x1_pos = PlotX(w, x1_val);
@@ -4013,9 +4011,9 @@ DrawCartesianYMajorAndMinor (SciPlotWidget w)
 {
   real y, x1_pos, y1_pos, x2_pos, y2_pos, x1_val, y1_val, 
        y_major_incr, minorval, majorval;
-  //real x_major_incr, height;
+
   int i, j, num_y_major; /* precision, */
-  //int num_x_major;
+
 
   if (!w->plot.DrawMajor && !w->plot.DrawMinor)
     return;
@@ -4023,9 +4021,7 @@ DrawCartesianYMajorAndMinor (SciPlotWidget w)
   w->plot.current_id = SciPlotDrawingYMajorMinor;
 
   FontnumHeight(w, w->plot.axisFont);
-  //num_x_major  = w->plot.x.MajorNum;
   num_y_major  = w->plot.y.MajorNum;
-  //x_major_incr = w->plot.x.MajorInc;
   y_major_incr = w->plot.y.MajorInc;
   x1_val = w->plot.x.DrawOrigin;
   y1_val = w->plot.y.DrawOrigin;
@@ -4106,15 +4102,12 @@ DrawCartesianXAxis (SciPlotWidget w, int type)
        minorval, majorval, labelval;
   int i, j, num_x_major; /* precision, */
   char label[16]; /* , numberformat[16]; */
-  //real height, y_major_incr;
-  //int num_y_major;
+ 
 
   w->plot.current_id = SciPlotDrawingXAxis;
   FontnumHeight(w, w->plot.axisFont);
   num_x_major  = w->plot.x.MajorNum;
-  //num_y_major  = w->plot.y.MajorNum;
   x_major_incr = w->plot.x.MajorInc;
-  //y_major_incr = w->plot.y.MajorInc;
   x1_val = w->plot.x.DrawOrigin;
   y1_val = w->plot.y.DrawOrigin;
   x1_pos = PlotX(w, x1_val);
@@ -4215,14 +4208,11 @@ DrawCartesianYAxis (SciPlotWidget w, int type)
        y_major_incr, minorval, majorval, labelval, height;
   int i, j, num_y_major; /* precision, */
   char label[16]; /* , numberformat[16]; */
-  //int num_x_major;
-  //real x_major_incr;
+ 
 
   w->plot.current_id = SciPlotDrawingYAxis;
   height = FontnumHeight(w, w->plot.axisFont);
-  //num_x_major  = w->plot.x.MajorNum;
   num_y_major  = w->plot.y.MajorNum;
-  //x_major_incr = w->plot.x.MajorInc;
   y_major_incr = w->plot.y.MajorInc;
   x1_val = w->plot.x.DrawOrigin;
   y1_val = w->plot.y.DrawOrigin;
@@ -5338,7 +5328,7 @@ ComputeAxis_i (SciPlotAxis *axis, real min, real max, Boolean log,
 {
   real range, rnorm, delta, calcmin, calcmax;
   int nexp, majornum, i;
-  //int majordecimals, minornum;
+
 
   range = max - min;
   if (log) {
@@ -5366,9 +5356,9 @@ ComputeAxis_i (SciPlotAxis *axis, real min, real max, Boolean log,
     rnorm = range / powi(10.0, nexp);
     for (i = 0; i < NUMBER_MINOR; i++) {
       delta = CAdeltas[i];
-      //minornum = CAminors[i];
+
       majornum = (int) ((rnorm + 0.9999 * delta) / delta);
-      //majordecimals = CAdecimals[i];
+
       if (majornum <= max_major)
 	break;
     }
@@ -5433,7 +5423,7 @@ sciPlotMotionAP (SciPlotWidget w,
   int yorig, yend;
   real xscale, yscale;
   real minxlim, minylim, maxxlim, maxylim;  /* view port */
-  //real minxdat, minydat, maxxdat, maxydat;  /* data port */
+
   real newlim = 0.0;
   real txmin, txmax;
   real tymin, tymax;
@@ -5451,27 +5441,22 @@ sciPlotMotionAP (SciPlotWidget w,
     if (w->plot.XLog) {
       minxlim = log10(w->plot.x.DrawOrigin);
       maxxlim = log10(w->plot.x.DrawOrigin) + w->plot.x.DrawSize;
-      //minxdat = log10(w->plot.Min.x);
-      //maxxdat = log10(w->plot.Max.x);
+    
     }
     else {
       minxlim = w->plot.x.DrawOrigin;
       maxxlim = w->plot.x.DrawOrigin + w->plot.x.DrawSize;
-      //minxdat = w->plot.Min.x;
-      //maxxdat = w->plot.Max.x;
+
     }
 
     if (w->plot.YLog) {
       minylim = log10(w->plot.y.DrawOrigin);
       maxylim = log10(w->plot.y.DrawOrigin) + w->plot.y.DrawSize;
-      //minydat = log10(w->plot.Min.y);
-      //maxydat = log10(w->plot.Max.y);
     }
     else {
       minylim = w->plot.y.DrawOrigin;
       maxylim = w->plot.y.DrawOrigin + w->plot.y.DrawSize;
-      //minydat = w->plot.Min.y;
-      //maxydat = w->plot.Max.y;
+ 
     }
 
     /* get scale factor for converting data coords to screen coords */

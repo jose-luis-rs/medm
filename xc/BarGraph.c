@@ -523,7 +523,7 @@ static void Resize(Widget w)
     int seg_spacing, font_center, font_height;
     char upper[30], lower[30];
     Boolean displayValue;
-    //Boolean displayLabel;
+
 
     DPRINTF(("BarGraph: executing Resize\n"));
 
@@ -590,14 +590,14 @@ static void Resize(Widget w)
 
     if(strlen(wb->control.label) > 1 ||
       (strlen(wb->control.label) == 1 && wb->control.label[0] != ' ')) {
-        //displayLabel = True;
+  
 	wb->barGraph.lbl.x = (short)((wb->core.width/2) -
 	  (XTextWidth(wb->control.font, wb->control.label,
 	    strlen(wb->control.label))/2));
 	wb->barGraph.lbl.y = (short)(wb->barGraph.face.y +
 	  wb->control.font->ascent + 1);
     } else {
-        //displayLabel = False;
+
 	wb->barGraph.lbl.x = wb->barGraph.face.x;
 	wb->barGraph.lbl.y = wb->barGraph.face.y;
     }

@@ -205,7 +205,6 @@ int xwd2ps(int argc, char **argv, FILE *fo)
 
     float ha, wa;
 
-    //int dump_type = UNKNOWN;
 
     unsigned char *buffer=NULL;   /* temporary work buffer */
     unsigned char rr, gg, bb;
@@ -329,7 +328,6 @@ int xwd2ps(int argc, char **argv, FILE *fo)
     retCode = get_raster_header(file, &win, w_name);
     if(!retCode) goto CLEAN;
 
-    //dump_type = getDumpType(&win); /* TEMP result not used yet */
     getDumpType(&win); /* TEMP result not used yet */
 
   /*
@@ -1175,7 +1173,6 @@ static int get_raster_header(FILE *file, XWDFileHeader *win, char *w_name)
     unsigned long swaptest = 0;
 #endif
     int i, idifsize;
-    //int zflg;
 
 #if DEBUG_FORMAT
     print("get_raster_header: stdin->_file=%d\n",stdin->_file);

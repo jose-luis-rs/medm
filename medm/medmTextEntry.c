@@ -674,14 +674,14 @@ static void textEntryUpdateGraphicalInfoCb(XtPointer cd)
     MedmTextEntry *pte = (MedmTextEntry *) pr->clientData;
     DlTextEntry *dlTextEntry = pte->dlElement->structure.textEntry;
     XcVType hopr, lopr;
-    //XcVType val;
+    
     short precision;
 
 
   /* Get values from the record  and adjust them */
     hopr.fval = (float) pr->hopr;
     lopr.fval = (float) pr->lopr;
-    //val.fval = (float) pr->value;
+    
     if((hopr.fval == 0.0) && (lopr.fval == 0.0)) {
 	hopr.fval += 1.0;
     }

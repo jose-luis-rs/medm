@@ -130,7 +130,7 @@ void createChannel()
     KeySym keySyms[N_MAX_MENU_ELES];
     XmButtonType buttonType[N_MAX_MENU_ELES];
     Widget channelMB;
-    //Widget channelHelpPDM;
+    /*Widget channelHelpPDM;*/
     Widget menuHelpWidget;
     int i, n;
     Arg args[10];

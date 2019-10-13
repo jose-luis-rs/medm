@@ -1782,7 +1782,7 @@ Boolean medmSaveDisplay(DisplayInfo *displayInfo, char *filename, Boolean overwr
     char f1[MAX_FILE_CHARS], f2[MAX_FILE_CHARS+4];
     char warningString[2*MAX_FILE_CHARS];
     int  strLen1, strLen3, strLen4;
-    //int strLen2;
+    /*int strLen2;*/
     int  status;
     FILE *stream;
     Boolean brandNewFile = False;
@@ -1806,7 +1806,7 @@ Boolean medmSaveDisplay(DisplayInfo *displayInfo, char *filename, Boolean overwr
 #endif
 
     strLen1 = strlen(filename);
-    //strLen2 = strlen(DISPLAY_FILE_BACKUP_SUFFIX);
+    /*strLen2 = strlen(DISPLAY_FILE_BACKUP_SUFFIX);*/
     strLen3 = strlen(DISPLAY_FILE_ASCII_SUFFIX);
     strLen4 = strlen(templateSuffix);
 
@@ -3516,7 +3516,7 @@ int main(int argc, char *argv[])
     } else if(request->opMode == EXECUTE) {
 	globalDisplayListTraversalMode = DL_EXECUTE;
 	if(request->fileCnt > 0) {	/* assume .adl file names follow */
-	  //XtVaSetValues(mainShell, XmNinitialState, IconicState, NULL);
+	  /*XtVaSetValues(mainShell, XmNinitialState, IconicState, NULL);*/
 	  iconify=1;
 	}
       /* Start the scheduler */
@@ -3751,7 +3751,7 @@ int main(int argc, char *argv[])
     GetWorkSpaceList(mainMW);
 #endif
     if (iconify) {
-      //IconifyMe(display, XtWindow(mainShell));
+      /*IconifyMe(display, XtWindow(mainShell));*/
       XIconifyWindow(display, XtWindow(mainShell), screenNum); 
 
     }

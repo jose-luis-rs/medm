@@ -560,8 +560,8 @@ static void stripChartConfig(MedmStripChart *psc)
     int width;
     int height;
     int dropXAxisUnitLabel = False;
-    //int dropYAxisUnitLabel = False;
-    //int dropTitleLabel = False;
+    /*int dropYAxisUnitLabel = False;*/
+    /*int dropTitleLabel = False;*/
     int squeezeSpace = False;
     int widthExt;
     int heightExt;
@@ -653,7 +653,7 @@ static void stripChartConfig(MedmStripChart *psc)
 	squeezeSpace = True;
 	if((dlStripChart->plotcom.title == NULL)
 	  || (strlen(dlStripChart->plotcom.title) == 0)) {
-            //dropTitleLabel = True;
+            
 	    psc->dataY0 -= sccd.titleFontHeight;
 	    psc->dataHeight = psc->dataY1 - psc->dataY0 + 1;
 	    if((psc->w - psc->dataX1 - 1) > psc->dataY0) {
@@ -673,7 +673,7 @@ static void stripChartConfig(MedmStripChart *psc)
 	}
 	if((dlStripChart->plotcom.ylabel == NULL)
 	  || (strlen(dlStripChart->plotcom.ylabel) == 0)) {
-          //dropYAxisUnitLabel = True;
+          
 	    psc->dataY0 -= sccd.axisLabelFontHeight;
 	    psc->dataHeight = psc->dataY1 - psc->dataY0 + 1;
 	    if((psc->w - psc->dataX1 - 1) > psc->dataY0) {
@@ -755,7 +755,7 @@ static void stripChartConfig(MedmStripChart *psc)
 
   /* draw y-axis label */
     if(dlStripChart->plotcom.ylabel) {
-        //int textWidth;
+        
 	char *label = dlStripChart->plotcom.ylabel;
 	int strLen = strlen(label);
 	int x, y;
@@ -1186,7 +1186,7 @@ static void stripChartUpdateGraphicalInfoCb(XtPointer cd) {
     DlStripChart *dlStripChart = psc->dlElement->structure.stripChart;
     Widget widget = psc->dlElement->widget;
     XcVType hopr, lopr;
-    //XcVType val;
+    
     short precision = 0;
     int i, row;
 
@@ -1236,7 +1236,7 @@ static void stripChartUpdateGraphicalInfoCb(XtPointer cd) {
     case DBF_DOUBLE :
 	hopr.fval = (float)pR->hopr;
 	lopr.fval = (float)pR->lopr;
-	//val.fval = (float)pR->value;
+	
 	precision = pR->precision;
 	break;
     default :
@@ -2165,7 +2165,7 @@ void stripChartUpdateMatrixColors(int clr, int row)
 static void stripChartDialogCreateDialog(void)
 {
     Widget w, wparent;
-    //Widget columns[SC_COLS], labels[SC_COLS];
+    
     XmString label, opt1, opt2, opt3;
     int i, j;
     static Boolean first = True;
@@ -2238,7 +2238,7 @@ static void stripChartDialogCreateDialog(void)
 	  xmFormWidgetClass, scMatrixW,
 	  XmNfractionBase, MAX_PENS + 1,
 	  NULL);
-	//columns[j] = wparent = w;
+	
         wparent = w;
       /* Create a column label */
 	w = XtVaCreateManagedWidget(scColumnLabels[j],
@@ -2252,7 +2252,7 @@ static void stripChartDialogCreateDialog(void)
 	  XmNtopPosition, 0,
 	  XmNbottomPosition, 1,
 	  NULL);
-	//labels[j] = w;
+	
 
 	for(i=0; i < MAX_PENS; i++) {
 	    switch(j) {

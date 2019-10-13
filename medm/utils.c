@@ -1624,11 +1624,9 @@ Boolean doResizing(Window window, Position initialX, Position initialY,
 {
     XEvent event;
     Boolean returnVal = True;
-    //DisplayInfo *cdi;
     int xOffset, yOffset;
 
     if(!currentDisplayInfo) return False;
-    //cdi = currentDisplayInfo;
 
     xOffset = 0;
     yOffset = 0;
